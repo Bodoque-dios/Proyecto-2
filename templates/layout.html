@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Yo Reciclo 2</title>
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+</head>
+
+<body>
+
+	<nav class="navbar is-success" role="navigation" aria-label="main navigation">
+		<div class="navbar-brand">
+			<a class="navbar-item" href="https://bulma.io">
+				<img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
+			</a>
+
+			<a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
+				data-target="navbarBasicExample">
+				<span aria-hidden="true"></span>
+				<span aria-hidden="true"></span>
+				<span aria-hidden="true"></span>
+			</a>
+		</div>
+
+		<div id="navbarBasicExample" class="navbar-menu">
+			<div class="navbar-start">
+
+			</div>
+
+			<div class="navbar-end">
+				<div class="navbar-item">
+					<div class="buttons">
+						<a class="button is-primary">
+							<strong>Registrarse</strong>
+						</a>
+						<a class="button is-light">
+							Inicio de sesión
+						</a>
+						<a class="button is-light">
+							Contacto
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</nav>
+
+	<div class="columns">
+
+		<div class="column is-one-fifth is-narrow">
+
+			<aside class="menu">
+
+				<ul class="menu-list">
+					<li><a>Ranking</a></li>
+					<li><a>Tips y consejos</a></li>
+					<li><a>Puntos de reciclaje</a></li>
+				</ul>
+
+			</aside>
+
+		</div>
+		<div class="column">
+
+			{% block body %}
+			{% endblock%}
+
+		</div>
+		
+	</div>
+
+
+</body>
+
+</html>
