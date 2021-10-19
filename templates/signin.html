@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block body %}
+<div class="columns is-mobile mt-4">
+	<br>
+	<div class="column is-three-fifths is-offset-one-fifth">
+		<form action="/check" method="POST" class="box">
+			<div class="field">
+				<label class="label">Usuario</label>
+				<div class="control">
+					<input class="input" type="text" placeholder="Nombre de Usuario" name="usuario">
+				</div>
+			</div>
+
+			<div class="field">
+				<label class="label">Contraseña</label>
+				<div class="control has-icons-right">
+					<input class="input" type="text" placeholder="***********" name="contraseña">
+				</div>
+			</div>
+
+			<div >
+				<div class="field">
+					<button class="button is-link">Ingresar</button>
+				</div>
+			</div>
+		</form>
+	</div>
+
+</div>
+
+{% endblock %}
