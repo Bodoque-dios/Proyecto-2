@@ -32,12 +32,21 @@
 			<div class="navbar-end">
 				<div class="navbar-item">
 					<div class="buttons">
+						{% if 'active' in session:%}
+						<a href="/" class="button is-primary"><!-- ruta no existe-->
+							<strong>{{session['usuario']}}</strong>
+						</a>
+						<a href="/salir" class="button"><!-- ruta no existe-->
+							Salir
+						</a>
+						{% else: %}
 						<a class="button is-primary" href="/signup.html">
 							<strong>Registrarse</strong>
 						</a>
 						<a class="button is-light" href="/signin.html">
 							Inicio de sesión
 						</a>
+						{% endif %}
 						<a class="button is-light">
 							Contacto
 						</a>
@@ -49,7 +58,7 @@
 	</nav>
 
 	<div class="columns">
-
+		
 		<div class="column is-3 is-narrow">
 
 			<aside class="menu">
@@ -63,7 +72,7 @@
 			</aside>
 
 		</div>
-		<div class="column">
+		<div class="column is">
 
 			{% block body %}
 			{% endblock %}

@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<h1 class="tile is-1">
+	<strong>Noticias Importantes</strong>
+</h1>
+
+
+{% for noticia in noticias: %}
+<div class="card">
+	<header class="card-header">
+		<p class="card-header-title">
+			{{noticia['title']}}
+		</p>
+
+	</header>
+	<div class="card-content">
+		<div class="content">
+			{{noticia['content']}}	
+		</div>
+
+	</div>
+		
+	
+</div>
+{% endfor %}
+
+{% endblock %}
