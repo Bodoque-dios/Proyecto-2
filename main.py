@@ -45,5 +45,10 @@ def signin():
 def signup():
     return render_template('/signup.html')
 
+#Aqui agrego la Ruta del perfil
+@app.route("perfil.html")#Aqui lo deje asi no mas, me falta cambiarlo a mi al otro link de perfil(pipe)
+def perfil():
+    return render_template('/perfil.html')
+    
 if __name__ == "__main__":
     app.run(debug=True)
