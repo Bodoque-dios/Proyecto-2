@@ -36,8 +36,8 @@ ranking_gs = Proyecto_2_db.get_worksheet(1)
 
 @app.route('/')
 def hello_world():
-    return render_template('algunawea.html')
-
+    noticias = headlines['articles']
+    return render_template('inicio.html', noticias=noticias)
 
 @app.route('/revisar', methods=['POST'])
 def check():
@@ -76,9 +76,9 @@ def logout():
     session.clear()
     return redirect('/')
 
-@app.route("perfil.html")#Aqui lo deje asi no mas, me falta cambiarlo a mi al otro link de perfil(pipe)
+@app.route("/perfil")#Aqui lo deje asi no mas, me falta cambiarlo a mi al otro link de perfil(pipe)
 def perfil():
-    return render_template('/perfil.html')
+    return render_template('/perfil_.html')
 
 if __name__ == "__main__":
     app.run(debug=True)
