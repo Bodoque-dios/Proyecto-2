@@ -3,20 +3,20 @@
 
 <div class="columns">
 
-	<div class="column is-9">
-		<h1 class="tile is-1 is-centered">
+	<div class="column ">
+		<h1 class="tile is-size-1 ">
 			<strong>Noticias Importantes</strong>
 		</h1>
 
 
 		{% for noticia in noticias: %}
-		<div class="card">
-			<div class="card-content title">
+		<div class="card has-background-white-ter">
+			<div class="card-content title mb-0">
 				{{noticia['title']}}
 			</div>
-			<div class="card-content">
+			<div class="card-content ">
 				<div class="content">
-					{{noticia['description']}}
+					<p class="is-size-5">{{noticia['description']}}</p>
 				</div>
 			</div>
 			<div class="card-image">
@@ -30,10 +30,11 @@
 			</footer>
 
 		</div>
+		<div class="block"></div>
 		{% endfor %}
 
 	</div>
-	<div class="column ">
+	<div class="column is-3">
 			<table class="table is-fullwidth">
 				<thead>
 					<tr>
