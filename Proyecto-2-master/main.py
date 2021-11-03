@@ -80,5 +80,16 @@ def logout():
 def perfil():
     return render_template('/perfil_.html')
 
+
+@app.route('/tips_y_consejos')
+def consejos():
+    return render_template('/tips_y_consejos.html')
+
+@app.route('/tips/<titulo>')
+def tip(titulo):
+
+    return render_template('/tip.html', titulo=titulo)
+
+
 if __name__ == "__main__":
     app.run(debug=True)
