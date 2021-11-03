@@ -1,459 +1,379 @@
-<!DOCTYPE html>
-<html>
+{% extends "layout.html" %}
+{% block body %}
 
-<head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Yo Reciclo 2</title>
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-</head>
+<div>
+    <h1 class="title is-1"><strong>Ranking</strong> </h1>
 
-<body>
+</div>
+<div class="column">
+    <!-- este es el relleno para que se vea mejor-->
+</div>
 
-	<nav class="navbar is-success" role="navigation" aria-label="main navigation">
-		<div class="navbar-brand">
-			<a class="navbar-item" href="https://bulma.io">
-				<img src="https://bulma.io/images/bulma-logo.png" width="112" height="28">
-			</a>
+<table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+    <thead>
+        <tr>
+            <th>Posición</th>
+            <th>Usuario</th>
+            <th>Puntaje</th>
+        </tr>
+    </thead>
 
-			<a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false"
-				data-target="navbarBasicExample">
-				<span aria-hidden="true"></span>
-				<span aria-hidden="true"></span>
-				<span aria-hidden="true"></span>
-			</a>
-		</div>
-
-		<div id="navbarBasicExample" class="navbar-menu">
-			<div class="navbar-start">
-
-			</div>
-
-			<div class="navbar-end">
-				<div class="navbar-item">
-					<div class="buttons">
-						{% if 'active' in session:%}
-						<a href="/perfil" class="button is-primary"><!-- ruta no existe-->
-							<strong>{{session['usuario']}}</strong>
-						</a>
-						<a href="/salir" class="button"><!-- ruta no existe-->
-							Salir
-						</a>
-						{% else: %}
-						<a class="button is-primary" href="/signup.html">
-							<strong>Registrarse</strong>
-						</a>
-						<a class="button is-light" href="/signin.html">
-							Inicio de sesión
-						</a>
-						{% endif %}
-						<a class="button is-light">
-							Contacto
-						</a>
-					</div>
-				</div>
-			</div>
-		</div>
-
-	</nav>
-
-	<div class="columns">
-		
-		<div class="column is-3 is-narrow">
-
-			<aside class="menu">
-
-				<ul class="menu-list">
-					<li><a href="/ranking">Ranking</a></li>
-					<li><a>Tips y consejos</a></li>
-					<li><a>Puntos de reciclaje</a></li>
-				</ul>
-
-			</aside>
-
-		</div>
-		<div class="column is">
-
-			{% block body %}
-			{% endblock %}
-            <div>
-                <h1 class="title is-1"><strong>Ranking</strong> </h1>
-
-            </div>
-            <div class="column">
-                <!-- este es el relleno para que se vea mejor-->
-            </div>
-            
-            
-
-            
-            <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
-                <thead>
-                  <tr>
-                    <th>Posición</th>
-                    <th>Usuario</th>
- 
-                    <th>Puntaje</th>
-                  </tr>
-                </thead>
-                
-                <tbody>
-                  <tr>
-                    <th>1</th>
-                    <td>
-                        <div class="columna">
-                            <div class="columns">
-                                <div class="column is-one-fifth">
-                                    <figure class="image is-24x24">
-                                        <img class="is-rounded" src="/imagenes/descarga.jfif">
-                                    </figure>
-                                </div>
-                                <div class="column"> El Pitbul</div>
-                            </div>   
+    <tbody>
+        <tr>
+            <th>1</th>
+            <td>
+                <div class="columna">
+                    <div class="columns">
+                        <div class="column is-one-fifth">
+                            <figure class="image is-24x24">
+                                <img class="is-rounded" src="/imagenes/descarga.jfif">
+                            </figure>
                         </div>
-                        
+                        <div class="column"> El Pitbul</div>
+                    </div>
+                </div>
 
-                    </td>
- 
-                    <td>1003 pts</td>
-                  </tr>
-                  <tr>
-                    <th>2</th>
-                    <td>
-                        <div class="columna">
-                            <div class="columns">
-                                <div class="column is-one-fifth">
-                                    <figure class="image is-24x24">
-                                        <img class="is-rounded" src="/imagenes/descarga.jfif">
-                                    </figure>
-                                </div>
-                                <div class="column">Ando Picao</div>
-                            </div>   
+
+            </td>
+
+            <td>1003 pts</td>
+        </tr>
+        <tr>
+            <th>2</th>
+            <td>
+                <div class="columna">
+                    <div class="columns">
+                        <div class="column is-one-fifth">
+                            <figure class="image is-24x24">
+                                <img class="is-rounded" src="/imagenes/descarga.jfif">
+                            </figure>
                         </div>
-                    </td>
+                        <div class="column">Ando Picao</div>
+                    </div>
+                </div>
+            </td>
 
-                    <td>1002 pts</td>
-                  </tr>
-                  <tr>
-                    <th>3</th>
-                    <td>
-                        <div class="columna">
-                            <div class="columns">
-                                <div class="column is-one-fifth">
-                                    <figure class="image is-24x24">
-                                        <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
-                                    </figure>
-                                </div>
-                                <div class="column">El_Hombre_Orquesta</div>
-                            </div>   
+            <td>1002 pts</td>
+        </tr>
+        <tr>
+            <th>3</th>
+            <td>
+                <div class="columna">
+                    <div class="columns">
+                        <div class="column is-one-fifth">
+                            <figure class="image is-24x24">
+                                <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
+                            </figure>
                         </div>
-                    </td>
+                        <div class="column">El_Hombre_Orquesta</div>
+                    </div>
+                </div>
+            </td>
 
-                    <td>1001 pts</td>
-                  </tr>
-                  <tr>
-                    <th>4</th>
-                    <td>
-                        <div class="columna">
-                            <div class="columns">
-                                <div class="column is-one-fifth">
-                                    <figure class="image is-24x24">
-                                        <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
-                                    </figure>
-                                </div>
-                                <div class="column">Usuario 4</div>
-                            </div>   
+            <td>1001 pts</td>
+        </tr>
+        <tr>
+            <th>4</th>
+            <td>
+                <div class="columna">
+                    <div class="columns">
+                        <div class="column is-one-fifth">
+                            <figure class="image is-24x24">
+                                <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
+                            </figure>
                         </div>
-                    </td>
+                        <div class="column">Usuario 4</div>
+                    </div>
+                </div>
+            </td>
 
-                    <td>1000 pts</td>
-                  </tr>
-                  <tr>
-                    <th>5</th>
-                    <td>
-                        <div class="columna">
-                            <div class="columns">
-                                <div class="column is-one-fifth">
-                                    <figure class="image is-24x24">
-                                        <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
-                                    </figure>
-                                </div>
-                                <div class="column">Usuario 5</div>
-                            </div>   
+            <td>1000 pts</td>
+        </tr>
+        <tr>
+            <th>5</th>
+            <td>
+                <div class="columna">
+                    <div class="columns">
+                        <div class="column is-one-fifth">
+                            <figure class="image is-24x24">
+                                <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
+                            </figure>
                         </div>
-                    </td>
+                        <div class="column">Usuario 5</div>
+                    </div>
+                </div>
+            </td>
 
-                    <td>998 pts</td>
-                  </tr>
-                  <tr>
-                    <th>6</th>
-                    <td>
-                        <div class="columna">
-                            <div class="columns">
-                                <div class="column is-one-fifth">
-                                    <figure class="image is-24x24">
-                                        <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
-                                    </figure>
-                                </div>
-                                <div class="column">Usuario 6</div>
-                            </div>   
+            <td>998 pts</td>
+        </tr>
+        <tr>
+            <th>6</th>
+            <td>
+                <div class="columna">
+                    <div class="columns">
+                        <div class="column is-one-fifth">
+                            <figure class="image is-24x24">
+                                <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
+                            </figure>
                         </div>
-                    </td>
+                        <div class="column">Usuario 6</div>
+                    </div>
+                </div>
+            </td>
 
-                    <td>997 pts</td>
-                  </tr>
-                  <tr>
-                    <th>7</th>
-                    <td>
-                        <div class="columna">
-                            <div class="columns">
-                                <div class="column is-one-fifth">
-                                    <figure class="image is-24x24">
-                                        <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
-                                    </figure>
-                                </div>
-                                <div class="column">Usuario 7</div>
-                            </div>   
+            <td>997 pts</td>
+        </tr>
+        <tr>
+            <th>7</th>
+            <td>
+                <div class="columna">
+                    <div class="columns">
+                        <div class="column is-one-fifth">
+                            <figure class="image is-24x24">
+                                <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
+                            </figure>
                         </div>
-                    </td>
+                        <div class="column">Usuario 7</div>
+                    </div>
+                </div>
+            </td>
 
-                    <td>990 pts</td>
-                  </tr>
-                  <tr>
-                    <th>8</th>
-                    <td>
-                        <div class="columna">
-                            <div class="columns">
-                                <div class="column is-one-fifth">
-                                    <figure class="image is-24x24">
-                                        <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
-                                    </figure>
-                                </div>
-                                <div class="column">Usuario 8</div>
-                            </div>   
+            <td>990 pts</td>
+        </tr>
+        <tr>
+            <th>8</th>
+            <td>
+                <div class="columna">
+                    <div class="columns">
+                        <div class="column is-one-fifth">
+                            <figure class="image is-24x24">
+                                <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
+                            </figure>
                         </div>
-                    </td>
+                        <div class="column">Usuario 8</div>
+                    </div>
+                </div>
+            </td>
 
-                    <td>800 pts</td>
-                  </tr>
-                  <tr>
-                    <th>9</th>
-                    <td>
-                        <div class="columna">
-                            <div class="columns">
-                                <div class="column is-one-fifth">
-                                    <figure class="image is-24x24">
-                                        <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
-                                    </figure>
-                                </div>
-                                <div class="column">Usuario 9</div>
-                            </div>   
+            <td>800 pts</td>
+        </tr>
+        <tr>
+            <th>9</th>
+            <td>
+                <div class="columna">
+                    <div class="columns">
+                        <div class="column is-one-fifth">
+                            <figure class="image is-24x24">
+                                <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
+                            </figure>
                         </div>
-                    </td>
- 
-                    <td> 700 pts</td>
-                  </tr>
-                  <tr>
-                    <th>10</th>
-                    <td>
-                        <div class="columna">
-                            <div class="columns">
-                                <div class="column is-one-fifth">
-                                    <figure class="image is-24x24">
-                                        <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
-                                    </figure>
-                                </div>
-                                <div class="column">Usuario 10</div>
-                            </div>   
+                        <div class="column">Usuario 9</div>
+                    </div>
+                </div>
+            </td>
+
+            <td> 700 pts</td>
+        </tr>
+        <tr>
+            <th>10</th>
+            <td>
+                <div class="columna">
+                    <div class="columns">
+                        <div class="column is-one-fifth">
+                            <figure class="image is-24x24">
+                                <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
+                            </figure>
                         </div>
-                    </td>
+                        <div class="column">Usuario 10</div>
+                    </div>
+                </div>
+            </td>
 
-                    <td>699 pts</td>
-                  </tr>
-                  <tr>
-                    <th>11</th>
-                    <td>
-                        <div class="columna">
-                            <div class="columns">
-                                <div class="column is-one-fifth">
-                                    <figure class="image is-24x24">
-                                        <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
-                                    </figure>
-                                </div>
-                                <div class="column">Usuario 11</div>
-                            </div>   
+            <td>699 pts</td>
+        </tr>
+        <tr>
+            <th>11</th>
+            <td>
+                <div class="columna">
+                    <div class="columns">
+                        <div class="column is-one-fifth">
+                            <figure class="image is-24x24">
+                                <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
+                            </figure>
                         </div>
-                    </td>
- 
-                    <td>650 pts</td>
-                  </tr>
-                  <tr>
-                    <th>12</th>
-                    <td>
-                        <div class="columna">
-                            <div class="columns">
-                                <div class="column is-one-fifth">
-                                    <figure class="image is-24x24">
-                                        <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
-                                    </figure>
-                                </div>
-                                <div class="column">Usuario 12</div>
-                            </div>   
+                        <div class="column">Usuario 11</div>
+                    </div>
+                </div>
+            </td>
+
+            <td>650 pts</td>
+        </tr>
+        <tr>
+            <th>12</th>
+            <td>
+                <div class="columna">
+                    <div class="columns">
+                        <div class="column is-one-fifth">
+                            <figure class="image is-24x24">
+                                <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
+                            </figure>
                         </div>
-                    </td>
+                        <div class="column">Usuario 12</div>
+                    </div>
+                </div>
+            </td>
 
-                    <td>620 pts</td>
-                  </tr>
-                  <tr>
-                    <th>13</th>
-                    <td>
-                        <div class="columna">
-                            <div class="columns">
-                                <div class="column is-one-fifth">
-                                    <figure class="image is-24x24">
-                                        <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
-                                    </figure>
-                                </div>
-                                <div class="column">Usuario 13</div>
-                            </div>   
+            <td>620 pts</td>
+        </tr>
+        <tr>
+            <th>13</th>
+            <td>
+                <div class="columna">
+                    <div class="columns">
+                        <div class="column is-one-fifth">
+                            <figure class="image is-24x24">
+                                <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
+                            </figure>
                         </div>
-                    </td>
+                        <div class="column">Usuario 13</div>
+                    </div>
+                </div>
+            </td>
 
-                    <td>590 pts</td>
-                  </tr>
-                  <tr>
-                    <th>14</th>
-                    <td>
-                        <div class="columna">
-                            <div class="columns">
-                                <div class="column is-one-fifth">
-                                    <figure class="image is-24x24">
-                                        <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
-                                    </figure>
-                                </div>
-                                <div class="column">Usuario 14</div>
-                            </div>   
+            <td>590 pts</td>
+        </tr>
+        <tr>
+            <th>14</th>
+            <td>
+                <div class="columna">
+                    <div class="columns">
+                        <div class="column is-one-fifth">
+                            <figure class="image is-24x24">
+                                <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
+                            </figure>
                         </div>
-                    </td>
+                        <div class="column">Usuario 14</div>
+                    </div>
+                </div>
+            </td>
 
-                    <td>551 pts</td>
-                  </tr>
-                  <tr>
-                    <th>15</th>
-                    <td>
-                        <div class="columna">
-                            <div class="columns">
-                                <div class="column is-one-fifth">
-                                    <figure class="image is-24x24">
-                                        <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
-                                    </figure>
-                                </div>
-                                <div class="column">Usuario 15</div>
-                            </div>   
+            <td>551 pts</td>
+        </tr>
+        <tr>
+            <th>15</th>
+            <td>
+                <div class="columna">
+                    <div class="columns">
+                        <div class="column is-one-fifth">
+                            <figure class="image is-24x24">
+                                <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
+                            </figure>
                         </div>
-                    </td>
+                        <div class="column">Usuario 15</div>
+                    </div>
+                </div>
+            </td>
 
-                    <td>550 pts</td>
-                  </tr>
-                  <tr>
-                    <th>16</th>
-                    <td>
-                        <div class="columna">
-                            <div class="columns">
-                                <div class="column is-one-fifth">
-                                    <figure class="image is-24x24">
-                                        <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
-                                    </figure>
-                                </div>
-                                <div class="column">Usuario 16</div>
-                            </div>   
+            <td>550 pts</td>
+        </tr>
+        <tr>
+            <th>16</th>
+            <td>
+                <div class="columna">
+                    <div class="columns">
+                        <div class="column is-one-fifth">
+                            <figure class="image is-24x24">
+                                <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
+                            </figure>
                         </div>
-                    </td>
+                        <div class="column">Usuario 16</div>
+                    </div>
+                </div>
+            </td>
 
-                    <td>490 pts</td>
-                  </tr>
-                  <tr>
-                    <th>17</th>
-                    <td>
-                        <div class="columna">
-                            <div class="columns">
-                                <div class="column is-one-fifth">
-                                    <figure class="image is-24x24">
-                                        <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
-                                    </figure>
-                                </div>
-                                <div class="column">Usuario 17</div>
-                            </div>   
+            <td>490 pts</td>
+        </tr>
+        <tr>
+            <th>17</th>
+            <td>
+                <div class="columna">
+                    <div class="columns">
+                        <div class="column is-one-fifth">
+                            <figure class="image is-24x24">
+                                <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
+                            </figure>
                         </div>
-                    </td>
+                        <div class="column">Usuario 17</div>
+                    </div>
+                </div>
+            </td>
 
-                    <td>450 pts</td>
-                  </tr>
-                  <tr>
-                    <th>18</th>
-                    <td>
-                        <div class="columna">
-                            <div class="columns">
-                                <div class="column is-one-fifth">
-                                    <figure class="image is-24x24">
-                                        <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
-                                    </figure>
-                                </div>
-                                <div class="column">Usuario 18</div>
-                            </div>   
+            <td>450 pts</td>
+        </tr>
+        <tr>
+            <th>18</th>
+            <td>
+                <div class="columna">
+                    <div class="columns">
+                        <div class="column is-one-fifth">
+                            <figure class="image is-24x24">
+                                <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
+                            </figure>
                         </div>
-                    </td>
+                        <div class="column">Usuario 18</div>
+                    </div>
+                </div>
+            </td>
 
-                    <td>300 pts</td>
-                  </tr>
-                  <tr>
-                    <th>19</th>
-                    <td>
-                        <div class="columna">
-                            <div class="columns">
-                                <div class="column is-one-fifth">
-                                    <figure class="image is-24x24">
-                                        <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
-                                    </figure>
-                                </div>
-                                <div class="column">Usuario 19</div>
-                            </div>   
+            <td>300 pts</td>
+        </tr>
+        <tr>
+            <th>19</th>
+            <td>
+                <div class="columna">
+                    <div class="columns">
+                        <div class="column is-one-fifth">
+                            <figure class="image is-24x24">
+                                <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
+                            </figure>
                         </div>
-                    </td>
+                        <div class="column">Usuario 19</div>
+                    </div>
+                </div>
+            </td>
 
-                    <td>
-                        101 pts
-                    </td>    </tr>
-                  <tr>
-                    <th>20</th>
-                    <td>
-                        <div class="columna">
-                            <div class="columns">
-                                <div class="column is-one-fifth">
-                                    <figure class="image is-24x24">
-                                        <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
-                                    </figure>
-                                </div>
-                                <div class="column">Usuario 20</div>
-                            </div>   
+            <td>
+                101 pts
+            </td>
+        </tr>
+        <tr>
+            <th>20</th>
+            <td>
+                <div class="columna">
+                    <div class="columns">
+                        <div class="column is-one-fifth">
+                            <figure class="image is-24x24">
+                                <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
+                            </figure>
                         </div>
-                    </td>
+                        <div class="column">Usuario 20</div>
+                    </div>
+                </div>
+            </td>
 
-                    <td>50 pts</td>
-                  </tr>
-                </tbody>
-              </table>
+            <td>50 pts</td>
+        </tr>
+    </tbody>
+</table>
 
 
-		</div>
+</div>
 
-        <div class="column is-3"><!-- Aca para cambiar el ancho de la fila     -->
-            
-        </div>
-		
-	</div>
-    
+<div class="column is-3">
+    <!-- Aca para cambiar el ancho de la fila     -->
 
-</body>
+</div>
 
-</html>
+</div>
+
+{% endblock %}

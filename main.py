@@ -58,7 +58,7 @@ def check():
 @app.route('/ranking')
 def ranking():
 
-    return jsonify(ranking_gs.get_all_records())
+    return render_template('/ranking.html')
 
 
 @app.route('/signin.html')
