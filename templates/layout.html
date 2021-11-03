@@ -33,10 +33,12 @@
 				<div class="navbar-item">
 					<div class="buttons">
 						{% if 'active' in session:%}
-						<a href="/perfil" class="button is-primary"><!-- ruta no existe-->
+						<a href="/perfil" class="button is-primary">
+							<!-- ruta no existe-->
 							<strong>{{session['usuario']}}</strong>
 						</a>
-						<a href="/salir" class="button"><!-- ruta no existe-->
+						<a href="/salir" class="button">
+							<!-- ruta no existe-->
 							Salir
 						</a>
 						{% else: %}
@@ -57,16 +59,33 @@
 
 	</nav>
 
-	<div class="columns">
-		
+	<div class="columns mt-1">
+
 		<div class="column is-3 is-narrow">
 
 			<aside class="menu">
-
+				<p class="menu-label is-size-5 mx-2 mb-0">General</p>
 				<ul class="menu-list">
-					<li><a href="/ranking" class="subtitle">Ranking</a></li>
-					<li><a href="/tips_y_consejos" class="subtitle">Tips y consejos</a></li>
-					<li><a class="subtitle">Puntos de reciclaje</a></li>
+					<li>
+						<ul class="menu-list">
+							<li><a href="/ranking" class="">Ranking</a></li>
+							<li><a href="/tips_y_consejos" class="">Tips y consejos</a></li>
+							<li><a href=# class="">Puntos de reciclaje</a></li>
+						</ul>
+					</li>
+
+					{% if 'active' in session: %}
+
+					<p class="menu-label is-size-5 mx-2 mb-0">Personal</p>
+
+					<li>
+						<ul class="menu-list">
+							<li><a href="/progreso" >Mi progreso</a></li>
+							<li><a href=# class="">Mis Metas</a></li>
+						</ul>
+					</li>
+
+					{% endif %}
 				</ul>
 
 			</aside>
@@ -78,7 +97,7 @@
 			{% endblock %}
 
 		</div>
-		
+
 	</div>
 
 

@@ -90,6 +90,10 @@ def tip(titulo):
 
     return render_template('/tip.html', titulo=titulo)
 
+@app.route('/progreso')
+def progresos():
+    print('uwu')
+    return render_template('/progreso.html')
 
 if __name__ == "__main__":
     app.run(debug=True)
