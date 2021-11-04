@@ -104,6 +104,9 @@ def puntos():
 def metas():
     return render_template('/mismetaseste.html')
 
+@app.route('/nosotros')
+def nosotros():
+    return render_template('/nosotros.html')
 
 
 if __name__ == "__main__":
