@@ -43,3 +43,5 @@ asismismo, poder competir con otros usuarios y asi fomentar más el reciclaje
 - En mi perfil que los datos mostrados sean provenientes de la base de datos
 - En mi progreso hacer que la informacion sea dinamica de acuerdo al usuario
 - Que el ranking sea capaz de mostrar los puntajes reales de los usuarios
+
+### Para probar la pagina puede iniciar sesion con el usuario: b y contraseña: a
