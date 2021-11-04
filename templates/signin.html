@@ -4,6 +4,18 @@
 	<br>
 	<div class="column is-three-fifths is-offset-one-fifth">
 		<form action="/revisar" method="POST" class="box">
+			<div class="message is-danger">
+				{% with messages = get_flashed_messages() %}
+				{% if messages %}
+					<ul class=flashes>
+					{% for message in messages %}
+					<li>{{ message }}</li>
+					{% endfor %}
+					</ul>
+				{% endif %}
+				{% endwith %}
+			</div>
+			
 			<div class="field">
 				<label class="label">Usuario</label>
 				<div class="control">

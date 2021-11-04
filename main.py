@@ -52,7 +52,16 @@ def check():
             
             return render_template('inicio.html', noticias=noticias) #cambiar a pagina de inicio
 
-    return jsonify(users_gs.get_all_records())
+        flash('Usuario o Clave erronea ')
+        return redirect("/signin.html") #esto pendiente
+
+        
+        
+            
+
+    #return jsonify(users_gs.get_all_records())
+
+
 
 
 @app.route('/ranking')
