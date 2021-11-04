@@ -1,14 +1,14 @@
 # Proyecto 2
 ## Explicacion por cada vista
 
--Inicio:
+- Inicio:
 Se muestran noticias relevantes(por ahora son aleatorias)
 Resumen del ranking del reciclaje
 
--Ranking:
+- Ranking:
 Muestra la tabla de posiciones segun el puntaje de cada usuario, para incentivar la competencia(y por tanto el reciclaje)
 
--Tips y consejos:
+- Tips y consejos:
 Informacion util sobre como reciclar distintos tipos de residuos
 
 -Puntos de reciclaje:
