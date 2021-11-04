@@ -11,8 +11,9 @@ from newsapi import NewsApiClient
 
 newsapi = NewsApiClient(api_key='ffa1123e4add4b7c9e5e95f1ce806f8b')
 
-headlines = newsapi.get_top_headlines(category='general',
-                                        language='es'
+headlines = newsapi.get_top_headlines(category='science',
+                                        language='es',
+                                    
 )
 
 
@@ -102,6 +103,20 @@ def tip(titulo):
 @app.route('/progreso')
 def progresos():
     return render_template('/progreso.html')
+
+
+@app.route('/puntos')
+def puntos():
+    return render_template('/puntos.html')
+
+@app.route('/metas')
+def metas():
+    return render_template('/mismetaseste.html')
+
+@app.route('/nosotros')
+def nosotros():
+    return render_template('/nosotros.html')
+
 
 if __name__ == "__main__":
     app.run(debug=True)
