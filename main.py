@@ -7,8 +7,9 @@ from flask import Flask, render_template, request, redirect, session, flash, jso
 
 from validate_email import validate_email
 
-
 from newsapi import NewsApiClient
+
+from sort import get_ranking
 
 newsapi = NewsApiClient(api_key='ffa1123e4add4b7c9e5e95f1ce806f8b')
 
@@ -58,24 +59,14 @@ def check():
     flash('Usuario o Clave erronea ')
     return redirect("/signin.html") #esto pendiente
 
-        
-        
-            
-
-
-
-
-
-
 
 @app.route('/ranking')
 def ranking():
-    from sort import get_ranking
+    
+    registros = []
     registros = get_ranking()
 
-
     return render_template('/ranking.html', registros = registros)
-
 
 
 @app.route('/signin.html')

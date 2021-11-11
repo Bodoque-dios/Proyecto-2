@@ -1,3 +1,5 @@
+from os import pipe
+from oauth2client.client import GOOGLE_APPLICATION_CREDENTIALS
 from oauth2client.service_account import ServiceAccountCredentials
 import gspread
 
@@ -20,33 +22,35 @@ usuarios = users_gs.get_all_records()
 total_puntos = {}
 ranking = []
 
-def info_usuario(key, puntos):
-	for usuario in usuarios:
-		if usuario['id'] == key:
+def get_total_puntos():
 
-			return key, usuario['img'], usuario['usuario'], total_puntos[key]
-
-def get_ranking():
-	
-	ranking = []
-	
-
-	for entrada in entradas:
+	for kk in total_puntos.keys():
+		total_puntos[kk] = 0
+	for  entrada in entradas:
 		
 		if entrada['id usuario'] in total_puntos:
 			total_puntos[entrada['id usuario']] += entrada['Puntos']
 		else:
 			total_puntos[entrada['id usuario']] = entrada['Puntos']
 
+	return total_puntos
+
+
+def get_ranking():
+
+	ranking = []
+	total_puntos = get_total_puntos()
 	sorted_keys = sorted(total_puntos, key=total_puntos.get)[::-1]
 
 	for key in sorted_keys:
 		#(id, img, Usuario, puntaje)
-		
-		user = info_usuario(key, total_puntos[key])
+		user = info_usuario(key)
 		ranking.append(user)
-
 	
 	return ranking
 
-print(ranking)
+def info_usuario(key):
+	
+	for usuario in usuarios:
+		if usuario['id'] == key:
+			return key, usuario['img'], usuario['usuario'], total_puntos[key]

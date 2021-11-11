@@ -21,6 +21,29 @@
     <tbody>
         
         {% for registro in registros %}
+
+        {% if session['id'] == registro[0]: %}
+        <tr class="is-selected">
+            
+            <th>{{ loop.index }}</th>
+            <td>
+                <div class="columna">
+                    <div class="columns">
+                        <div class="column is-one-fifth">
+                            <figure class="image is-24x24">
+                                <img class="is-rounded" src={{registro[1]}} alt="Image">
+                            </figure>
+                        </div>
+                        <div class="column">{{registro[2]}}</div>
+                    </div>
+                </div>
+            </td>
+            
+            <td>{{registro[3]}}</td>
+        </tr>
+
+        {% else: %}
+
         <tr>
             
             <th>{{ loop.index }}</th>
@@ -35,13 +58,12 @@
                         <div class="column">{{registro[2]}}</div>
                     </div>
                 </div>
-
-
             </td>
-
+            
             <td>{{registro[3]}}</td>
         </tr>
-        
+
+        {% endif %}
         {% endfor %}
         
         
