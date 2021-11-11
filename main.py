@@ -1,5 +1,6 @@
 import json
 
+
 from oauth2client.service_account import ServiceAccountCredentials
 import gspread
 from flask import Flask, render_template, request, redirect, session, flash, jsonify
@@ -33,6 +34,7 @@ Proyecto_2_db = client.open('Proyecto-2-db')
 
 users_gs = Proyecto_2_db.get_worksheet(0)
 ranking_gs = Proyecto_2_db.get_worksheet(1)
+posiciones_gs = Proyecto_2_db.get_worksheet(4)
 
 
 @app.route('/')
@@ -53,22 +55,27 @@ def check():
             
             return render_template('inicio.html', noticias=noticias) #cambiar a pagina de inicio
 
-        flash('Usuario o Clave erronea ')
-        return redirect("/signin.html") #esto pendiente
+    flash('Usuario o Clave erronea ')
+    return redirect("/signin.html") #esto pendiente
 
         
         
             
 
-    #return jsonify(users_gs.get_all_records())
+
+
 
 
 
 
 @app.route('/ranking')
 def ranking():
+    from sort import get_ranking
+    registros = get_ranking()
 
-    return render_template('/ranking.html')
+
+    return render_template('/ranking.html', registros = registros)
+
 
 
 @app.route('/signin.html')
