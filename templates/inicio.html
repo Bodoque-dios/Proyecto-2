@@ -19,7 +19,7 @@
 					<p class="is-size-5">{{noticia['description']}}</p>
 				</div>
 			</div>
-			<div class="card-image">
+			<div class="card-image p-3">
 				<figure class="image is-3by1">
 					<img src="{{noticia['urlToImage']}}" alt="Placeholder image">
 				</figure>
@@ -35,23 +35,25 @@
 
 	</div>
 	<div class="column is-3">
-			<table class="table is-fullwidth">
+			<table class="table is-fullwidth has-text-centered">
 				<thead>
 					<tr>
 						<th><abbr title="Usuario">Usuario</abbr></th>
-						<th><abbr title="Ranking">Rank</abbr></th>
+						<th><abbr title="Ranking">Rango</abbr></th>
 					</tr>
 
 				</thead>
-				<tbody>
+				<!-- (id, img, Usuario, puntaje) -->
+				<tbody class="has-text-centered">
 					<tr class="is-selected">
-						<td>User1</td>
-						<td>990</td>
+						<td><strong>{{ranking[0][2]}}</strong></td>
+						<td>1</td>
 					</tr>
-					{% for i in [2,3,4,5,6,7,8,9,10]%}
+
+					{% for user in ranking[1::] %}
 					<tr>
-						<td>User{{i}}</td>
-						<td>{{1000 - 10*i}}</td>						
+						<td>{{user[2]}}</td>
+						<td>{{loop.index + 1}}</td>						
 					</tr>
 					{% endfor %}
 				</tbody>

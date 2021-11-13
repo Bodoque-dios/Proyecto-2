@@ -11,28 +11,23 @@ from newsapi import NewsApiClient
 
 from sort import get_ranking
 
+#Noticias
 newsapi = NewsApiClient(api_key='ffa1123e4add4b7c9e5e95f1ce806f8b')
+headlines = newsapi.get_everything(language='es',  sort_by="publishedAt", page_size=30, q='(biodegradable AND reutilizar) OR (reutilizar AND reciclaje)')
 
-headlines = newsapi.get_top_headlines(category='science',
-                                        language='es',
-                                    
-)
-
-
-
-
+#Flask
 app = Flask(__name__)
 app.secret_key = 'no revelar clave'
 
+#Drive
 credential = ServiceAccountCredentials.from_json_keyfile_name("credenciales.json", ["https://spreadsheets.google.com/feeds",
                                                                                     "https://www.googleapis.com/auth/spreadsheets",
                                                                                     "https://www.googleapis.com/auth/drive.file",
                                                                                     "https://www.googleapis.com/auth/drive"])
-
-
 client = gspread.authorize(credential)
 Proyecto_2_db = client.open('Proyecto-2-db')
 
+# objetos de drive 
 users_gs = Proyecto_2_db.get_worksheet(0)
 ranking_gs = Proyecto_2_db.get_worksheet(1)
 posiciones_gs = Proyecto_2_db.get_worksheet(4)
@@ -40,8 +35,12 @@ posiciones_gs = Proyecto_2_db.get_worksheet(4)
 
 @app.route('/')
 def hello_world():
+
     noticias = headlines['articles']
-    return render_template('inicio.html', noticias=noticias)
+
+    ranking_ = get_ranking()[:10:]
+
+    return render_template('inicio.html', noticias=noticias, ranking= ranking_)
 
 @app.route('/revisar', methods=['POST'])
 def check():
@@ -54,11 +53,10 @@ def check():
 
             noticias = headlines['articles']
             
-            return render_template('inicio.html', noticias=noticias) #cambiar a pagina de inicio
+            return redirect('/')#cambiar a pagina de inicio
 
-    flash('Usuario o Clave erronea ')
+    flash('Usuario o Clave erronea')
     return redirect("/signin.html") #esto pendiente
-
 
 @app.route('/ranking')
 def ranking():
