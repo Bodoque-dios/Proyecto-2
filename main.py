@@ -113,6 +113,10 @@ def metas():
 def nosotros():
     return render_template('/nosotros.html')
 
+@app.route('/formulario_puntos')
+def formulario():
+    return render_template('/formulario_puntos.html')
+
 
 if __name__ == "__main__":
     app.run(debug=True)
