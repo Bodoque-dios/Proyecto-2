@@ -1,55 +1,64 @@
 {% extends "layout.html" %}
 {% block body %}
+<div class="columns">
+	<div class=" column box">
+		<div class="columns ">
 
-<div class=" column box">
-	<div class="columns ">
+			<div class="column is-two-fifths"></div>
 
-		<div class="column is-one-fifth"></div>
+			<div class="column is-three-third">
 
-		<div class="column is-three-fifth">
+				<div class="bulma-center-mixin-parent mx-6">
+					<figure>
+						<img class="center" width="128" height="128" src="{{session['img']}}">
+					</figure>
 
-			<div class="bulma-center-mixin-parent">
-				<figure>
-					<img class="center" width="128" height="128" src="/static/descarga.jfif">
-				</figure>
-
+				</div>
 			</div>
+			
+			{% for posicion in posiciones %}
+				{% if session['id'] == posicion[0] %}
+					<div class="column is-one-fifth box ">
+						<h2> <strong>Tu Posicion en el Ranking es:</strong></h2>
+						<h3 class="title is-1">{{loop.index}}</h3>
+
+					</div>
+					<div class="column is-1"></div>
+				{% endif %}
+			{% endfor %}
+			
 		</div>
-
-		<div class="column is-one-fifth box ">
-			<h2> <strong>Tu Posicion en el Ranking es:</strong></h2>
-			<h3 class="title is-1">13</h3>
-
-		</div>
-		<div class="column"></div>
-	</div>
-
-	<div class="column">
 
 		<div class="column">
-			<div class="columns">
-				<div class="column is-one-fifth"></div>
-				<div class="column is-three-fifth">
-					<div class="columns box">
-						<div class="column ">
-							<p class="my-1"><strong>Nombre</strong></p>
-							<p class="my-1"><strong>Nombre de Usuario</strong></p>
-							<p class="my-1"><strong>Mail</strong></p>
-							<p class="my-1"><strong>Fecha de Nacimiento</strong></p>
-							<p class="my-1"><strong>Region / Comuna</strong></p>
-						</div>
-						<div class="column">
-							<h3 class="my-1">Rene Puentes</h3>
-							<h3 class="my-1">Loko Rene</h3>
-							<h3 class="my-1">Rene.Puentes@alumnos.uai.cl </h3>
-							<h3 class="my-1">30 / 02 / 2002</h3>
-							<h3 class="my-1">Región del Biobío / Lota</h3>
+
+			<div class="column">
+				<div class="columns">
+					<div class="column is-one-fifth"></div>
+					<div class="column is-three-fifth">
+						<div class="columns box">
+							<div class="column ">
+								<p class="my-1"><strong>Nombre</strong></p>
+								<p class="my-1"><strong>Nombre de Usuario</strong></p>
+								<p class="my-1"><strong>Mail</strong></p>
+								<p class="my-1"><strong>Fecha de Nacimiento</strong></p>
+								<p class="my-1"><strong>Region / Comuna</strong></p>
+							</div>
+							<div class="column">
+								<h3 class="my-1">{{session['nombre']}}</h3>
+								<h3 class="my-1">{{session['usuario']}}</h3>
+								<h3 class="my-1">{{session['mail']}} </h3>
+								<h3 class="my-1">{{session['fdn']}}</h3>
+								<h3 class="my-1">{{session['region/comuna']}}</h3>
+							</div>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 	</div>
+
+	<div class="column is-1"></div>
 </div>
+
 
 	{% endblock %}

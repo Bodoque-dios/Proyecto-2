@@ -49,6 +49,11 @@ def check():
         if user['usuario'] == request.form['usuario'] and str(user['contrasena']) == str(request.form['contraseña']):
             session['id'] = user['id']
             session['usuario'] = user['usuario']
+            session['nombre'] = user['nombre']
+            session['mail'] = user['mail']
+            session['fdn'] = user['fdn']
+            session['region/comuna'] = user['region/comuna']
+            session['img'] = user['img']
             session['active'] = True
 
             noticias = headlines['articles']
@@ -84,7 +89,9 @@ def logout():
 
 @app.route("/perfil")#Aqui lo deje asi no mas, me falta cambiarlo a mi al otro link de perfil(pipe)
 def perfil():
-    return render_template('/perfil_.html')
+    posiciones = []
+    posiciones = get_ranking()
+    return render_template('/perfil_.html',  posiciones = posiciones)
 
 
 @app.route('/tips_y_consejos')
