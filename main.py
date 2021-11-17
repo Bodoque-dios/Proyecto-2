@@ -79,6 +79,7 @@ def signin():
 
 @app.route('/signup.html')
 def signup():
+
     return render_template('/signup.html')
 
 
@@ -123,6 +124,28 @@ def nosotros():
 @app.route('/formulario_puntos')
 def formulario():
     return render_template('/formulario_puntos.html')
+
+@app.route('/registrar', methods=['POST'])
+def register():
+    if request.form['contraseña1'] != request.form['contraseña2']:
+        flash('Claves no iguales')
+        return redirect('/signup.html')
+    users = users_gs.get_all_records()
+    users_new_id = int(users[0]['id'] + 1)
+    imagen = 'https://picsum.photos/id/'+str(users_new_id)+'/64/64'
+    row = [users_new_id,request.form['nombre'],request.form['usuario'],request.form['contraseña1'],request.form['email'],request.form['fdn'],request.form['region/comuna'],imagen]
+
+    users_gs.insert_row(row,2)
+
+    session['id'] =  users_new_id
+    session['usuario'] = request.form['usuario']
+    session['nombre'] = request.form['nombre']
+    session['mail'] = request.form['email']
+    session['fdn'] = request.form['fdn']
+    session['region/comuna'] = request.form['region/comuna']
+    session['img'] = imagen 
+    session['active'] = True
+    return redirect('/')
 
 
 if __name__ == "__main__":

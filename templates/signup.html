@@ -1,8 +1,18 @@
 {% extends "layout.html" %}
 {% block body %}
 <div class="columns is-mobile mt-4">
+	
 	<br>
 	<div class="column is-three-fifths is-offset-one-fifth">
+		    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        {% for message in messages %}
+          <div class="box has-background-danger has-text-white">
+            {{ message }}
+          </div>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
 		<form action="/registrar" method="POST" class="box">
 			<div class="field">
 				<label class="label">Nombre y Apellido</label>
@@ -24,6 +34,19 @@
 				</div>
 			</div>
 
+
+			<div class="field">
+				<label class="label">Fecha De Nacimiento</label>
+				<div class="control has-icons-right">
+					<input class="input" placeholder="00/00/0000" name="fdn" required>
+				</div>
+			</div>
+			<div class="field">
+				<label class="label">Region/Comuna</label>
+				<div class="control has-icons-right">
+					<input class="input" type ="text" placeholder="Talca" name="region/comuna" required>
+				</div>
+			</div>
 			<div class="field">
 				<label class="label">Contraseña</label>
 				<div class="control has-icons-right">
