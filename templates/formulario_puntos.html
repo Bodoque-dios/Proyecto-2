@@ -1,81 +1,85 @@
 {% extends "layout.html" %}
 {% block body %}
 <div class="columns">
-	<div class="column is-flex is-flex-direction-column box mt-4">
-		<a class="title has-text-centered">Tipos de elementos a reciclar</a>
-		<table class="table  has-text-centered">
-			<thead>
-				<tr>
-					<th></th>
-					<th>Pequeño</th>
-					<th>Grande</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<th>algo</th>
-					<td><input type="number" min="0" class="input is-small is-rounded"></td>
-					<td><input type="number" min="0" class="input is-small is-rounded"></td>
-				</tr>
-				<tr>
-					<th>Vidrio</th>
-					<td><input type="number" min="0" class="input is-small is-rounded"></td>
-					<td><input type="number" min="0" class="input is-small is-rounded"></td>
-				</tr>
-				<tr>
-					<th>Tetra-Pak</th>
-					<td><input type="number" min="0" class="input is-small is-rounded"></td>
-					<td><input type="number" min="0" class="input is-small is-rounded"></td>
-				</tr>
-				<tr>
-					<th>Plástico</th>
-					<td><input type="number" min="0" class="input is-small is-rounded"></td>
-					<td><input type="number" min="0" class="input is-small is-rounded"></td>
-				</tr>
-				<tr>
-					<th>Cartón</th>
-					<td><input type="number" min="0" class="input is-small is-rounded"></td>
-					<td><input type="number" min="0" class="input is-small is-rounded"></td>
-				</tr>
-				<tr>
-					<th>Latas</th>
-					<td><input type="number" min="0" class="input is-small is-rounded"></td>
-					<td><input type="number" min="0" class="input is-small is-rounded"></td>
-				</tr>
-				<tr>
-					<th>Organico</th>
-					<td><input type="number" min="0" class="input is-small is-rounded"></td>
-					<td><input type="number" min="0" class="input is-small is-rounded"></td>
-				</tr>
+	<div class="column box mt-4">
+		<form action="/obtener_puntos" method="POST" class=" has-text-centered">
+			<!-- AQUI -->
+			<p class="title ">Tipos de elementos a reciclar</p>
+			<table class="table  has-text-centered container">
+				<thead>
+					<tr>
+						<th></th>
+						<th>Pequeño</th>
+						<th>Grande</th>
+					</tr>
+				</thead>
+				<tbody class="field">
+					<tr class="control">
+						<th>Vidrio</th>
+						<td><input type="number" min="0" value="0" class="input is-small is-rounded" name="vidrio_chico"></td>
+						<td><input type="number" min="0" value="0" class="input is-small is-rounded" name="vidrio_grande"></td>
+					</tr>
+					<tr class="control">
+						<th>Tetra-Pak</th>
+						<td><input type="number" min="0" value="0" class="input is-small is-rounded" name="tetra_chico"></td>
+						<td><input type="number" min="0" value="0" class="input is-small is-rounded" name="tetra_grande"></td>
+					</tr>
+					<tr class="control">
+						<th>Plástico</th>
+						<td><input type="number" min="0" value="0" class="input is-small is-rounded" name="plastico_chico"></td>
+						<td><input type="number" min="0" value="0" class="input is-small is-rounded" name="plastico_grande"></td>
+					</tr>
+					<tr class="control">
+						<th>Cartón</th>
+						<td><input type="number" min="0" value="0" class="input is-small is-rounded" name="carton_chico"></td>
+						<td><input type="number" min="0" value="0" class="input is-small is-rounded" name="carton_grande"></td>
+					</tr>
+					<tr class="control">
+						<th>Latas</th>
+						<td><input type="number" min="0" value="0" class="input is-small is-rounded" name="latas_chico"></td>
+						<td><input type="number" min="0" value="0" class="input is-small is-rounded" name="latas_grande"></td>
+					</tr>
+					<tr class="control">
+						<th>Organico</th>
+						<td><input type="number" min="0" value="0" class="input is-small is-rounded" name="org_kilo"></td>
+						<td><input type="number" min="0" value="0" class="input is-small is-rounded" name="org_litro"></td>
+					</tr>
 
 
-			</tbody>
+				</tbody>
 
-		</table>
-		<a class="subtitle">Descripción</a>
+			</table>
+			<p class="title mb-2">Descripción</p>
 
-		<textarea name="descripcion" id="" cols="15" rows="5" class="textarea is-small is-hovered">uwu</textarea>
-
-		<div class="file my-4 container is-info">
-			<label class="file-label">
-				<input class="file-input" type="file" name="resume">
-				<span class="file-cta ">
-					<span class="file-label" name='foto'>
-						Subir Imagen...
-					</span>
-				</span>
-			</label>
-		</div>
-
-		<div class="field is-grouped  container">
-			<div class="control">
-				<button class="button is-link">Submit</button>
+			<textarea name="descripcion" cols="15" rows="5" class="textarea is-small is-hovered mt-3 ">Pequeña descripción</textarea>
+			<div class="columns">
+				<div class="column"></div>
+				<div class="column">
+<!-- 					<div class="file my-4  is-info">
+						<label class="file-label">
+							<input class="file-input" type="file" name="imagen">
+							<span class="file-cta ">
+								<span class="file-label" name='foto'>
+									Subir Imagen...
+								</span>
+							</span>
+						</label>
+					</div> -->
+		
+					<div class="field is-grouped mt-4 mb-1">
+						<div class="control">
+							<button class="button is-link">Ingresar</button>
+						</div>
+						<div class="control">
+							<button type="reset" class="button is-link is-light">Cancelar</button>
+						</div>
+					</div>
+				</div>
+				<div class="column"></div>
+				
 			</div>
-			<div class="control">
-				<button class="button is-link is-light">Cancel</button>
-			</div>
-		</div>
-
+			
+		</form>
 	</div>
 
 

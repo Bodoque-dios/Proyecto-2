@@ -1,14 +1,12 @@
-import json
 from flask.sessions import SessionInterface
-
+from flask import Flask, render_template, request, redirect, session, flash
 
 from oauth2client.service_account import ServiceAccountCredentials
 import gspread
-from flask import Flask, render_template, request, redirect, session, flash, jsonify
 
 from validate_email import validate_email
-
 from newsapi import NewsApiClient
+from datetime import date
 
 from sort import get_ranking
 
@@ -30,9 +28,9 @@ Proyecto_2_db = client.open('Proyecto-2-db')
 
 # objetos de drive 
 users_gs = Proyecto_2_db.get_worksheet(0)
-ranking_gs = Proyecto_2_db.get_worksheet(1)
+data_gs = Proyecto_2_db.get_worksheet(1)
 opciones_gs= Proyecto_2_db.get_worksheet(2)
-posiciones_gs = Proyecto_2_db.get_worksheet(4)
+posiciones_gs = Proyecto_2_db.get_worksheet(4) #no se usa
 
 
 @app.route('/')
@@ -72,7 +70,6 @@ def ranking():
     
     registros = []
     registros = get_ranking()
-
     return render_template('/ranking.html', registros = registros)
 
 
@@ -126,7 +123,11 @@ def tip(titulo):
 
 @app.route('/progreso')
 def progresos():
-    return render_template('/progreso.html')
+    from grafico import grafico
+    entradas = []
+    entradas = data_gs.get_all_records()[1::]
+
+    return render_template('/progreso.html', entradas=entradas, plot=grafico(session['id']))
 
 
 @app.route('/puntos')
@@ -173,6 +174,51 @@ def register():
     session['img'] = imagen 
     session['active'] = True
     return redirect('/pregunta')
+
+@app.route('/obtener_puntos', methods=['POST'])
+def obtener_puntos():
+
+    vidrio_chico = int(request.form['vidrio_chico'])
+    vidrio_grande = int(request.form['vidrio_grande'])
+
+    tetra_chico = int(request.form['tetra_chico'])
+    tetra_grande = int(request.form['tetra_grande'])
+    
+    plastico_chico = int(request.form['plastico_chico'])
+    plastico_grande = int(request.form['plastico_grande'])
+
+    carton_chico = int(request.form['carton_chico'])
+    carton_grande = int(request.form['carton_grande'])
+
+    latas_chico = int(request.form['latas_chico'])
+    latas_grande = int(request.form['latas_grande'])
+
+    org_kilo = int(request.form['org_kilo'])
+    org_litro = int(request.form['org_litro'])
+
+    descripcion = request.form['descripcion']
+
+    #imagen = request.form['imagen']
+    entradas = data_gs.get_all_records()[1::]
+    
+    entrada_new_id = int(entradas[0]['id entrada'] + 1)
+    fecha = date.today().strftime("%d/%m/%Y")
+
+    suma_puntos = (tetra_grande*4 + tetra_chico) + (vidrio_grande*4 + vidrio_chico*2) + (plastico_grande*3 + plastico_chico) + (carton_grande*5 + carton_chico*1) + (latas_grande*2 + latas_chico) + (org_litro*4 + org_kilo*4)
+    info = [
+        session['id'], entrada_new_id, fecha,
+        descripcion, vidrio_grande, vidrio_chico,
+        tetra_grande, tetra_chico, plastico_grande,
+        plastico_chico, carton_grande ,carton_chico,
+        latas_grande, latas_chico, org_kilo + org_litro,
+        suma_puntos
+        ]
+    data_gs.insert_row(info, 3)
+    return redirect('/metas')
+    
+
+
+
 
 
 

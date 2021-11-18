@@ -5,28 +5,55 @@
 <!--  AAAAAAAA    -->
 
 <div class="columns mt-4">
-	<div class="column has-background-white-ter">
+	<div class="column box">
 
 		<div class="box mt-1" style="background-color: Aquamarine;">
-			Tu Progreso:
-			<progress class="progress is-medium mt-4" value="60" max="100">60%</progress>
+			Tu Progreso {{plot[1]}}/100:
+			<progress class="progress is-medium mt-4" value="{{plot[1]}}" max="100">60%</progress>
 		</div>
 		
 		<div class="columns">
 			<div class="column">
 				<figure class="image is-200x200">
-					<img class="center" src="/static/meses.jpg">
+					{{plot[0]|safe}}
 				</figure>
 			</div>
-			<div class="column">
-				<!--  https://bulma-calendar.onrender.com/#content    -->
+<!-- 			<div class="column">
+				  https://bulma-calendar.onrender.com/#content    
 				<figure class="image is-200x200">
-					<img class="center" src="/static/calendario.jpg">
+					<img class="center" src="/static/calendario.jpg"> 
 				</figure>
-			</div>
+			</div> -->
 		
 		</div>
 		
+	</div>
+	<div class="column is-3"></div>
+</div>
+
+<div class="columns m-0 p-0">
+	<div class="column box has-text-centered">
+
+		<table class="table is-fullwidth">
+			<thead>
+				<tr><th>Fecha</th> <th>Descripción</th> <th>Puntos</th></tr>
+			</thead>
+				
+			<tbody>
+				{% for entrada in entradas: %}
+				<tr>
+					{% if entrada['id usuario'] == session['id'] %}
+
+					<td>{{entrada['Fecha']}}</td>
+					<td>{{entrada['Descripcion']}}</td>
+					<td>{{entrada['Puntos']}}</td>
+					{% endif %}
+				</tr>
+				{% endfor %}
+			</tbody>
+
+		</table>
+
 	</div>
 	<div class="column is-3"></div>
 </div>

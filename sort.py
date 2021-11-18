@@ -1,5 +1,4 @@
-from os import pipe
-from oauth2client.client import GOOGLE_APPLICATION_CREDENTIALS
+
 from oauth2client.service_account import ServiceAccountCredentials
 import gspread
 
