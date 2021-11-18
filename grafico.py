@@ -1,5 +1,4 @@
 from matplotlib.figure import Figure
-import matplotlib.pyplot as plt
 import matplotlib
 from io import BytesIO
 import base64
