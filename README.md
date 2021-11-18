@@ -33,15 +33,5 @@ La pagina provee de informacion util sobre el reciclaje, ademas de incentivos.
 Uno se puede registrar a la pagina para mejorar sus habitos ya que esta le dara notificaciones y recordatorios de cuando reciclar, recibiendo recompensas en el proceso,
 asismismo, poder competir con otros usuarios y asi fomentar más el reciclaje
 
-## Mejoras pendientes:
-- [x] Habilitar el registro de nuevos usuarios
-- [x] En incio mostrar un ranking con datos verdaderos(desde la base de datos)
-- [x] En inicio mostrar noticias acorde al tema (CASI)
-- [ ] En tips y consejos completar con la informacion pendiente
-- [ ] En puntos de reciclaje tener la opcion de dar la ubicacion
-- [ ] En mis metas representar las metas de cada usuario y dar funcionalidad al sistema de puntaje
-- [x] En mi perfil que los datos mostrados sean provenientes de la base de datos
-- [ ] En mi progreso hacer que la informacion sea dinamica de acuerdo al usuario
-- [x] Que el ranking sea capaz de mostrar los puntajes reales de los usuarios
 
 ### Para probar la pagina puede iniciar sesion con el usuario: b y contraseña: a
