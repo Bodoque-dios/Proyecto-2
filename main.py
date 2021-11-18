@@ -153,6 +153,30 @@ def nosotros():
 def formulario():
     return render_template('/formulario_puntos.html')
 
+@app.route('/vidrio')
+def consejos():
+    return render_template('/vidrio.html')
+
+@app.route('/vcartonpapel')
+def consejos():
+    return render_template('/vcartonpapel.html')
+@app.route('/vlatas')
+def consejos():
+    return render_template('/vlatas.html')
+
+@app.route('/vtetra')
+def consejos():
+    return render_template('/vtetra.html')
+
+@app.route('/vresiduo')
+def consejos():
+    return render_template('/vresiduo.html')
+
+@app.route('/vplastico')
+def consejos():
+    return render_template('/vplastico.html')
+   
+
 @app.route('/registrar', methods=['POST'])
 def register():
     if request.form['contraseña1'] != request.form['contraseña2']:
