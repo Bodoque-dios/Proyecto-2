@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+{% block body %}
+
+<div class="columns">
+    <div class="column is-one-fifth"></div>
+    <div class="column box">
+    
+
+        <form action="/opcion" method="POST" >
+			<div class="field">
+				<label class="label">Tu Objetivo al usar esta Pagina Web</label>
+				<select name= objetivo1>
+					
+					<option value= "Reciclar Más" SELECTED>Reciclar Más</option>
+					<option value= "Reducir Huella de Carbono" SELECTED>Reducir Huella de Carbono</option>"
+					<option value= "Botar menos Basura" SELECTED>Botar menos Basura</option>"
+					<option value= "Ser consistente con el reciclaje" SELECTED>Ser consistente con el reciclaje</option>"
+					
+				</select>
+			</div>
+			<div class="field">
+				<label class="label">Frecuencia con la que quieres reciclar</label>
+				<select name= frecuencia1>
+					
+					<option value= "Una vez por semana" SELECTED>Una vez por semana</option>
+					<option value= "Una vez al mes" SELECTED>Una vez al mes</option>"
+					<option value= "Dos veces al mes" SELECTED>Dos veces al mes</option>"
+					
+					
+				</select>
+			</div>
+			<div class="field">
+				<label class="label">Recordatorio</label>
+				<div class="control">
+					<input class="input" type="text" placeholder="Ejemplo: Llevar mi basura al punto de reciclaje" name="recordar1" required>
+				</div>
+			</div>
+
+            
+            <div >
+				<div class="field">
+					<button class="button is-link">Ingresar</button>
+				</div>
+			</div>
+
+		</form>
+
+        <p>Estas preguntas te ayudaran a mantener claro tu meta ¡Exito!</p>
+
+    </div>
+    <div class="column is-one-fifth"></div>
+</div>
+
+
+{% endblock %}

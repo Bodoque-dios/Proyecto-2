@@ -1,4 +1,5 @@
 import json
+from flask.sessions import SessionInterface
 
 
 from oauth2client.service_account import ServiceAccountCredentials
@@ -30,6 +31,7 @@ Proyecto_2_db = client.open('Proyecto-2-db')
 # objetos de drive 
 users_gs = Proyecto_2_db.get_worksheet(0)
 ranking_gs = Proyecto_2_db.get_worksheet(1)
+opciones_gs= Proyecto_2_db.get_worksheet(2)
 posiciones_gs = Proyecto_2_db.get_worksheet(4)
 
 
@@ -45,6 +47,8 @@ def hello_world():
 @app.route('/revisar', methods=['POST'])
 def check():
     users = users_gs.get_all_records()
+    
+    
     for user in users:
         if user['usuario'] == request.form['usuario'] and str(user['contrasena']) == str(request.form['contraseña']):
             session['id'] = user['id']
@@ -83,6 +87,22 @@ def signup():
     return render_template('/signup.html')
 
 
+@app.route('/pregunta')
+def pregunta():
+    print("dfasd")
+    return render_template('/pregunta.html')
+
+    
+@app.route('/opcion' , methods=['POST'])
+def opcion():
+    opciones = opciones_gs.get_all_records()
+    users_new_id = session['id']
+    relleno = 'relleno'
+    row = [users_new_id,request.form['objetivo1'], request.form['recordar1'],relleno, request.form['frecuencia1']]
+    opciones_gs.insert_row(row,2)
+    return redirect('/')
+##,request.form['Recordatorio'],request.form['Fechas'],request['Frecuencia']
+
 @app.route('/salir')
 def logout():
     session.clear()
@@ -115,6 +135,13 @@ def puntos():
 
 @app.route('/metas')
 def metas():
+    opciones= opciones_gs.get_all_records()
+    for opcion in opciones:
+        if session['id']== opcion['id usuario']:
+            session['objetivo'] = opcion['Objetivo']
+            session['Recordatorio'] = opcion['Recordatorio']
+            session['Frecuencia'] = opcion['Frecuencia']
+            
     return render_template('/mismetaseste.html')
 
 @app.route('/nosotros')
@@ -145,7 +172,10 @@ def register():
     session['region/comuna'] = request.form['region/comuna']
     session['img'] = imagen 
     session['active'] = True
-    return redirect('/')
+    return redirect('/pregunta')
+
+
+
 
 
 if __name__ == "__main__":
